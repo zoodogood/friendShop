@@ -1,0 +1,30 @@
+.header
+{
+  background: #d95421;
+
+  position: fixed;
+  top: 0;
+  display: flex;
+  height: calc(40px + 0.5vh);
+  width: 100%;
+
+  transition: transform 200ms;
+
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 20px;
+
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.header--hide
+{
+  transform: translateY(-200px);
+}
+
+.header a
+{
+  text-decoration: none;
+  
+}

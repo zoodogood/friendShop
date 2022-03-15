@@ -1,0 +1,25 @@
+.scroll-up
+{
+  width: calc(30px + 2.4vw);
+  height: calc(30px + 2.4vw);
+
+  position: fixed;
+  bottom: 1.2vw;
+  right: 1.2vw;
+
+  background: #d95421;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Icons';
+  font-size: 1.2em;
+}
+
+
+.scroll-up--hide
+{
+  display: none;
+}
