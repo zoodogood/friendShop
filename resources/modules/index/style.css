@@ -76,11 +76,10 @@ article img
 {
   display: flex;
   align-items: stretch;
-  justify-content: center;
 
   flex-wrap: wrap;
   max-width: 85vw;
-  width: 1290px;
+  width: 1260px;
 }
 
 #services__article #servise__blocks p
@@ -88,6 +87,7 @@ article img
   align-self: flex-start;
   margin-left: 10px;
   font-size: 1.2em;
+  user-select: none;
 }
 
 #services__article #servise__blocks p big
@@ -111,6 +111,9 @@ article img
 
   box-shadow: 10px 5px 8px 4px rgba(255, 255, 255, 0.1);
   margin: 10px;
+
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 #services__article .servise__block .description
@@ -127,6 +130,7 @@ article img
   align-self: flex-start;
   padding-bottom: 30px;
   box-shadow: 7px 4px 5px red;
+  flex-grow: 0;
 }
 
 #services__article #services__description
