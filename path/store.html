@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "ru" dir = "ltr">
+  <head>
+    <meta charset = "utf-8">
+    <title>Услуга</title>
+    <link rel="shortcut icon" href="resources/images/favicon.png">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+
+    <base href = "../"></base>
+
+    <meta property = "og:title"       content = "" />
+    <meta property = "og:description" content = "" />
+    <meta property = "og:image"       content = "" />
+
+    <link rel = "stylesheet" href = "resources/style.css">
+  </head>
+  <body>
+    <form id = "form__base" name = "sendwebhook">
+      <span>
+        <label for = "level-confirm">Выберите уровень:</label>
+        <select class = "form_select" name = "level-confirm">
+          <option value = "1">Первый</option>
+          <option value = "2">Второй</option>
+          <option value = "2">Третий</option>
+          <option value = "2">Четвертый</option>
+          <option value = "5">Премиум</option>
+        </select>
+      </span>
+
+      <span>
+        <label for = "user-tag">Ваше имя в Discord</label>
+        <input type = "text" class = "form_input" name = "user-tag" placeholder = "Bampus#0000">
+      </span>
+
+      <span>
+        <label for = "description"></label>
+        <textarea maxlength = "2000" class = "form_textarea" placeholder = "Укажите здесь информацию, которую посчитаете нужной.&#13;&#10;Вы можете использовать Markdown (Discord)" name = "description"></textarea>
+      </span>
+    </form>
+
+  </body>
+  <script src = "resources/modules/FileLoader.js" charset = "utf-8"></script>
+  <script src = "resources/modules/store/main.js" charset = "utf-8"></script>
+</html>

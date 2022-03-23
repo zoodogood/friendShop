@@ -27,3 +27,11 @@ await new FileLoader("resources/modules")
     }
   })()
 })();
+
+
+
+const blocks = document.querySelectorAll("#servise__blocks .servise__block");
+blocks.forEach(node => node.addEventListener("click", clickEvent => {
+  const level = node.getAttribute("data-level");
+  window.location.href = `path/store.html?level=${ level }`;
+}));

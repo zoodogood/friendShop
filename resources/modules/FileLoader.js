@@ -62,6 +62,7 @@ class FileLoader {
   async #handleQueue(resolve){
     while (this.#queue.length){
       const [path, others] = this.#queue.shift();
+
       this.loadAsync(path, others);
       const node = this.resources[ path ].node;
       await new Promise(resolve => node.addEventListener("load", resolve, {once: true}));
