@@ -16,25 +16,60 @@
   </head>
   <body>
     <form id = "form__base" name = "sendwebhook">
-      <span>
+      <span id = "level-confirm">
         <label for = "level-confirm">Выберите уровень:</label>
-        <select class = "form_select" name = "level-confirm">
+        <select required class = "form_select" name = "level-confirm">
           <option value = "1">Первый</option>
           <option value = "2">Второй</option>
-          <option value = "2">Третий</option>
-          <option value = "2">Четвертый</option>
+          <option value = "3">Третий</option>
+          <option value = "4">Четвертый</option>
           <option value = "5">Премиум</option>
         </select>
       </span>
 
-      <span>
+      <span id = "user-tag">
         <label for = "user-tag">Ваше имя в Discord</label>
-        <input type = "text" class = "form_input" name = "user-tag" placeholder = "Bampus#0000">
+        <input required type = "text" class = "form_input" name = "user-tag" placeholder = "Bampus#0000">
       </span>
 
-      <span>
+      <span id = "description">
         <label for = "description"></label>
         <textarea maxlength = "2000" class = "form_textarea" placeholder = "Укажите здесь информацию, которую посчитаете нужной.&#13;&#10;Вы можете использовать Markdown (Discord)" name = "description"></textarea>
+        <hr>
+      </span>
+
+      <span id = "bots-count">
+        <label for = "bots-count">Сколько ботов хотите видеть?</label>
+        <select required class = "form_select" name = "bots-count">
+          <option value = "1">Не хочу</option>
+          <option value = "2">Меньше</option>
+          <option value = "3">Около 5-ти</option>
+          <option value = "4">Больше</option>
+        </select>
+      </span>
+
+      <span id = "other">
+        <label for = "other">Другое:</label>
+        <select required class = "form_select" name = "other">
+          <option value = "1">Мандаринки</option>
+          <option value = "2">Макарошки</option>
+          <option value = "3">Манго</option>
+          <option value = "4">Манная кашка</option>
+          <option value = "5">Многофрукт</option>
+        </select>
+      </span>
+
+      <span id = "email">
+        <label for = "email">Укажите Вашу электронную почту, чтобы мы могли связаться в крайних случаях.<br>(Необязательно)</label>
+        <input type = "email" class = "form_input" placeholder = "example@email.com" name = "email"></textarea>
+      </span>
+
+
+
+
+      <span id = "submit">
+        <hr>
+        <input type = "submit" class = "form_button" value="Отправить"></textarea>
       </span>
     </form>
 

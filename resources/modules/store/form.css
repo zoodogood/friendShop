@@ -2,9 +2,10 @@
 
 #form__base
 {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 50%);
-  grid-auto-rows: minmax(100px, auto);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 4rem;
 
   border-radius: 20px;
   max-width: 80vw;
@@ -21,7 +22,7 @@
 #form__base .form_select
 {
   background: #508c1e;
-  width: 20vw;
+  min-width: 20vw;
   height: 50px;
 
   font-size: 1.3em;
@@ -31,11 +32,13 @@
   border-radius: 5px;
   outline: none;
   border: none;
+
+  cursor: zoom-in;
 }
 
 #form__base .form_input
 {
-  width: 20vw;
+  min-width: 20vw;
   height: 50px;
   color: black;
 
@@ -60,9 +63,96 @@
   border-radius: 5px;
   outline: none;
   border: none;
+  resize: none;
+  height: 350px;
 }
 
-#form__base span
+#form__base .form_button
 {
+  cursor: pointer;
+  text-decoration: underline rgba(0, 0, 0, 0.15);
+  padding-left: 20px;
+  padding-right: 20px;
 
+  height: 50px;
+  color: black;
+
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  line-height: 2;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+
+#form__base #level-confirm
+{
+  margin-right: 20vw;
+}
+
+#form__base #user-tag
+{
+  margin-right: 15vw;
+}
+
+#form__base #description
+{
+  width: 100%;
+  margin-bottom: 7vh;
+}
+
+#form__base #description hr
+{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  border: none;
+}
+
+#form__base #bots-count
+{
+  margin-right: 5vw;
+  min-width: 12vw;
+}
+
+#form__base #other
+{
+  margin-right: 15vw;
+  min-width: 12vw;
+}
+
+#form__base #email
+{
+  width: 100%;
+}
+
+#form__base #email input
+{
+  min-width: 28vw;
+}
+
+#form__base #submit
+{
+  width: 100%;
+}
+
+#form__base #submit input
+{
+  margin-top: 30px;
+  background: #d95421;
+  color: white;
+  text-decoration: underline rgba(255, 255, 255, 0.5);
+  transition: box-shadow 100ms, border-radius 100ms;
+}
+
+
+#form__base #submit input:hover
+{
+  box-shadow: 3px 3px 30px 10px rgb(217, 150, 125, 0.2);
+  border-radius: 15px;
+  text-decoration: none;
 }

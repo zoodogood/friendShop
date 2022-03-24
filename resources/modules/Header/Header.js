@@ -6,7 +6,7 @@ class Header {
     document.body.prepend(this.node);
 
     this.node.className = "header";
-    this.node.innerHTML = "<a href = 'https://discord.gg/SEca4SC4Pb'><span class = 'icon'></span></a>";
+    this.node.innerHTML = "<a class = 'header__discord-link' href = 'https://discord.gg/SEca4SC4Pb'><span class = 'icon'></span></a>";
     this.#setHandlers();
   }
 
