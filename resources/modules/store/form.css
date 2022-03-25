@@ -9,9 +9,18 @@
 
   border-radius: 20px;
   max-width: calc(100% - 2px);
-  width: calc(80vw + 300px);
+  width: calc(80vw + 180px);
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#form__base::before
+{
+  content: "Сделать заказ:";
+  display: block;
+  width: 100%;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  font-size: 2.4em;
 }
 
 #form__base label
@@ -154,6 +163,7 @@
   filter: opacity(0.5) brightness(0.5);
   cursor: default;
   text-decoration: none;
+  border-radius: 0;
 }
 
 #form__base #submit input.pending
