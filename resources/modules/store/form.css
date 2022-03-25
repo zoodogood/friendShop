@@ -8,8 +8,8 @@
   row-gap: 4rem;
 
   border-radius: 20px;
-  max-width: 80vw;
-  width: 80vw;
+  max-width: calc(100% - 2px);
+  width: calc(80vw + 300px);
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -146,11 +146,33 @@
   background: #d95421;
   color: white;
   text-decoration: underline rgba(255, 255, 255, 0.5);
-  transition: box-shadow 100ms, border-radius 100ms;
+  transition: box-shadow 100ms, border-radius 100ms, filter 200ms, background 200ms;
 }
 
+#form__base #submit input[disabled]
+{
+  filter: opacity(0.5) brightness(0.5);
+  cursor: default;
+  text-decoration: none;
+}
 
-#form__base #submit input:hover
+#form__base #submit input.pending
+{
+  cursor: progress;
+}
+
+#form__base #submit input.success
+{
+  filter: opacity(0.5);
+  background: #508c1e;
+}
+
+#form__base #submit input.error
+{
+  background: #c70606;
+}
+
+#form__base #submit input:not([disabled]):hover
 {
   box-shadow: 3px 3px 30px 10px rgb(217, 150, 125, 0.2);
   border-radius: 15px;

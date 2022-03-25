@@ -20,12 +20,31 @@
     const userTag = form.querySelector("#user-tag input").value;
     const email   = form.querySelector("#email input").value;
 
-    const title  = userTag + (email ? ` | ${ email }` : "");
-    const response = await sendWebhook(title, description, fields);
+    const title  = `\`${ userTag }\`${ email ? `| ${ email }` : ""}`;
+    const promise = sendWebhook(title, description, fields);
+
+    const submitNode = form.querySelector("#submit input");
+    submitNode.classList.add("pending");
+    submitNode.setAttribute("disabled", true);
+    submitNode.value = "Загрузка...";
+
+    const response = await promise;
+
+    const setTextContent = async (node, content) => {
+      const glitch = new GlitchText(node.value, content);
+      for (const content of glitch){
+        await delay(5);
+        node.value = content;
+      }
+    }
+
+    submitNode.classList.remove("pending");
+    submitNode.classList.add(response?.ok ? "success" : "error");
+    setTextContent(submitNode, response?.ok ? "Успех!" : "Ошибка.");
   });
 
 
-  function sendWebhook(title, description, fields){
+  async function sendWebhook(title, description, fields){
 
     const embed = {
       title,
@@ -48,6 +67,11 @@
       })
     };
 
-    return fetch(URL, options);
+
+
+    const response = fetch(URL, options)
+      .catch(() => {});
+
+    return response;
   };
 })();
