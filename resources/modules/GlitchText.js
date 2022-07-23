@@ -1,15 +1,17 @@
 class GlitchText {
-  constructor(from = "", to = "hello, world", {step = 15} = {}){
+  constructor(from = "", to = "hello, world", {step = 15, random = false, maximum = 100} = {}){
     this.from = from;
     this.to   = to;
 
-    this.step = step;
+    this.step    = step;
+    this.random  = random;
+    this.maximum = maximum;
 
     this[Symbol.iterator] = this.iteratorFunction;
   }
 
   *iteratorFunction(){
-    let word = [...this.from];
+    const word = [...this.from];
     const target = this.to;
 
     while (word.length !== target.length){
@@ -17,11 +19,25 @@ class GlitchText {
         word.pop();
 
       if (word.length < target.length)
-        word.push("#");
+        word.push( String.fromCharCode(~~(Math.random() * 50)) );
 
-      word = word.map(letter => String.fromCharCode( random(20, 40) ));
       yield word.join("");
     }
+
+
+    if (this.maximum)
+    for (const index in word){
+      const charCode   = word[ index ].charCodeAt(0);
+      const targetCode = target[ index ].charCodeAt(0);
+
+      if (Math.abs(charCode - targetCode) > this.maximum)
+         word[ index ] = String.fromCharCode(
+           charCode > targetCode ?
+            targetCode + this.maximum :
+            targetCode - this.maximum
+         );
+
+    };
 
 
 
@@ -38,11 +54,15 @@ class GlitchText {
 
         const isUpper = targetCode > charCode;
 
-        const step = Math.min(
+        let step = Math.min(
           Math.abs(targetCode - charCode),
           this.step
         );
-        word[i] = String.fromCharCode( isUpper ? charCode + step : charCode - step  );
+
+        if (this.random)
+          step *= Math.random() * 2;
+
+        word[i] = String.fromCharCode(  isUpper ? charCode + step : charCode - step  );
       });
 
       yield word.join("");
@@ -52,3 +72,16 @@ class GlitchText {
     return;
   }
 }
+
+
+class GlitchTextElement extends HTMLElement {
+  constructor(){
+    super();
+
+    console.log(this);
+    
+  }
+}
+
+
+customElements.define("glitch-text", GlitchTextElement)

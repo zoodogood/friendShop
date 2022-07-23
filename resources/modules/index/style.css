@@ -30,6 +30,7 @@ article img
   min-height: calc(100vh - (60px + 0.5vh));
 
   justify-content: center;
+  position: relative;
 }
 
 #article__description
@@ -125,6 +126,15 @@ article img
 
   flex-grow: 1;
   cursor: pointer;
+
+  transition: filter 200ms;
+}
+
+#services__article .servise__block:hover
+{
+  perspective: 100px;
+  filter: grayscale(1);
+
 }
 
 #services__article .servise__block .description

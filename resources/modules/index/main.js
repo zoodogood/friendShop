@@ -9,23 +9,41 @@ await new FileLoader("resources/modules")
   .loadSync("/ScrollUp/ScrollUp.js", {})
   .whenQueueEnd;
 
-  new Header();
-  new ScrollUp();
+new Header();
+new ScrollUp();
 
-  (async () => {
-    const articleParagraph = document.querySelector("#article__description .article__paragraph");
-    while (true){
-      await delay(4000 + random(10000));
+(async () => {
+  const articleParagraph = document.querySelector("#article__description .article__paragraph");
+  while (true){
+    await delay(4000 + random(10000));
 
-      const from = [...new Array(4)].map( () => random(1072, 1203) ).map(String.fromCharCode);
-      const glitch = new GlitchText(from, "Атом", { step: 2 });
+    const from = [...new Array(4)].map( () => random(1072, 1203) ).map(String.fromCharCode);
+    const glitch = new GlitchText(from, "Атом", { step: 2 });
 
-      for (const content of glitch){
-        await delay(15);
-        articleParagraph.textContent = content;
-      }
+    for (const content of glitch){
+      await delay(15);
+      articleParagraph.textContent = content;
     }
-  })()
+  }
+})();
+
+
+
+// particles.js
+(async () => {
+  await new FileLoader("resources/modules/index")
+    .loadSync("/particles.js", {})
+    .whenQueueEnd;
+
+  const particles = new Particles();
+  if (!particles.dataLoaded){
+    await new Promise((res) => Particles.events.once("load", res));
+  }
+
+  const ID_SELECTOR = "container__description";
+  particles.displayAt(ID_SELECTOR);
+})();
+
 })();
 
 
