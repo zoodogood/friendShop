@@ -25,6 +25,8 @@ body
   flex-direction: column;
   align-items: center;
   background: #0f141e;
+
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar-button

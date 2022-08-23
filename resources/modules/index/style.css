@@ -126,15 +126,19 @@ article img
 
   flex-grow: 1;
   cursor: pointer;
-
   transition: filter 200ms;
+}
+
+#servise__blocks:hover
+{
+  perspective: 100px;
+
 }
 
 #services__article .servise__block:hover
 {
   perspective: 100px;
   filter: grayscale(1);
-
 }
 
 #services__article .servise__block .description
